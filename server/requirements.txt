@@ -1,0 +1,12 @@
+flask
+flask-cors
+pillow
+numpy
+opencv-python
+mediapipe
+tensorflow
+scikit-learn
+pymongo
+bcrypt
+python-dotenv
+python-jose[cryptography]

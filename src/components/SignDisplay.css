@@ -1,0 +1,92 @@
+.sign-display {
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  text-align: center;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  margin-top: 1rem;
+  box-shadow: 0 4px 8px rgba(19, 62, 135, 0.1);
+  color: var(--text-primary);
+}
+
+@media (max-width: 480px) {
+  .sign-display {
+    padding: 0.75rem;
+  }
+
+  .sign-result {
+    font-size: 2.5rem;
+    padding: 1rem;
+    min-height: 80px;
+  }
+
+  .history-item {
+    font-size: 1rem;
+    padding: 0.3rem 0.6rem;
+  }
+}
+
+@media (max-height: 600px) {
+  .sign-result {
+    min-height: 60px;
+    padding: 0.5rem;
+  }
+}
+
+.sign-display h2 {
+  margin: 0;
+  color: #133E87;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.sign-result {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #608BC1;
+  text-align: center;
+  padding: 2rem;
+  background: #F3F3E0;
+  border-radius: 15px;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0 0 10px rgba(96, 139, 193, 0.5);
+  animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+  0% {
+    text-shadow: 0 0 10px rgba(96, 139, 193, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(96, 139, 193, 0.8);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(96, 139, 193, 0.5);
+  }
+}
+
+.sign-history {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.history-item {
+  padding: 0.5rem 1rem;
+  background: rgba(96, 139, 193, 0.2);
+  border-radius: 10px;
+  font-size: 1.2rem;
+  color: #133E87;
+  transition: all 0.3s ease;
+}
+
+.history-item:hover {
+  background: rgba(96, 139, 193, 0.3);
+  transform: translateY(-2px);
+} 

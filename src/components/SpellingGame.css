@@ -1,0 +1,124 @@
+.spelling-game {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-radius: 20px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  box-shadow: 0 8px 32px rgba(19, 62, 135, 0.1);
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  background: #608BC1;  /* Medium blue */
+  border-radius: 12px;
+  color: #F3F3E0;  /* Light cream text */
+}
+
+.timer, .score {
+  padding: 0.5rem 1rem;
+  background: #133E87;  /* Dark blue */
+  color: #F3F3E0;  /* Light cream text */
+  border-radius: 8px;
+}
+
+.game-start {
+  text-align: center;
+  padding: 2rem;
+}
+
+.game-start h2 {
+  color: #133E87;  /* Dark blue text */
+  margin-bottom: 1rem;
+}
+
+.game-start button {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background: #608BC1;  /* Medium blue */
+  color: #F3F3E0;  /* Light cream text */
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(19, 62, 135, 0.1);
+}
+
+.game-start button:hover {
+  background: #133E87;  /* Dark blue on hover */
+  transform: translateY(-2px);
+}
+
+.target-word, .current-word {
+  text-align: center;
+  padding: 1.5rem;
+  background: #F3F3E0;  /* Light cream background */
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(19, 62, 135, 0.05);
+}
+
+.target-word h3, .current-word h3 {
+  color: #133E87;  /* Dark blue text */
+  font-size: 1.1rem;
+}
+
+.word {
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  margin-top: 0.5rem;
+  color: #608BC1;  /* Medium blue text */
+}
+
+.target-word .word {
+  color: #00838f;
+}
+
+.current-word .word {
+  color: #006064;
+  min-height: 3rem;
+}
+
+@media (max-width: 768px) {
+  .spelling-game {
+    padding: 1rem;
+  }
+
+  .word {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .spelling-game {
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .game-header {
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .word {
+    font-size: 1.8rem;
+    letter-spacing: 0.1em;
+  }
+
+  .game-start button {
+    width: 100%;
+    max-width: 200px;
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+@media (max-height: 700px) {
+  .spelling-game {
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+} 

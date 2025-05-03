@@ -1,0 +1,69 @@
+.camera-container {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--bg-secondary);
+  padding: 1rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(19, 62, 135, 0.1);
+}
+
+.camera-video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 12px;
+  transform: scaleX(-1);
+}
+
+.camera-canvas {
+  display: none;
+}
+
+.camera-controls {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.camera-button {
+  padding: 0.8rem 1.5rem;
+  font-size: clamp(0.9rem, 3vw, 1rem);
+  border: none;
+  border-radius: 12px;
+  background: var(--accent);
+  color: var(--bg-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(19, 62, 135, 0.1);
+}
+
+.camera-button:hover {
+  background: #133E87;  /* Dark blue on hover */
+  transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+  .camera-container {
+    padding: 0.5rem;
+    border-radius: 10px;
+  }
+
+  .camera-controls {
+    padding: 0.5rem;
+  }
+
+  .camera-button {
+    width: 100%;
+    max-width: 200px;
+    padding: 0.6rem 1rem;
+  }
+}
+
+@media (max-height: 600px) {
+  .camera-container {
+    max-height: 70vh;
+  }
+} 

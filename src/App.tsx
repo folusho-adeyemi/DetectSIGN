@@ -51,16 +51,20 @@ const AppContent: React.FC = () => {
 
   return (
     <div className={`App ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
-      <ThemeToggle />
-      <UserMenu />
-      <WelcomeSection username={user.username} />
       <header className="App-header">
-        <h1>ASL Sign Language Detector</h1>
+        <h1>DetectSIGN</h1>
+        <div className="header-actions">
+          <ThemeToggle />
+          <UserMenu />
+        </div>
       </header>
+      
+      <WelcomeSection username={user.username} />
+      
       <main>
         <div className="instructions">
           <p>Position your hand in front of the camera and make an ASL sign. 
-             The detector will attempt to recognize the sign every second.</p>
+             The detector will attempt to recognize the sign in real-time.</p>
         </div>
         <div className="detection-container">
           <div className="camera-section">

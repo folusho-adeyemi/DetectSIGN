@@ -1,95 +1,125 @@
 .auth-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #F3F3E0 0%, #CBDCEB 100%);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e2e8f0 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .auth-content {
   display: flex;
   max-width: 1200px;
   width: 100%;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
-  border-radius: 20px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(19, 62, 135, 0.1);
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .auth-left {
   flex: 1;
   padding: 4rem;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .auth-left h1 {
-  color: #133E87;
-  font-size: 2.5rem;
+  color: #2d3748;
+  font-size: 2.75rem;
   margin-bottom: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
 }
 
 .subtitle {
-  color: #608BC1;
-  font-size: 1.2rem;
-  margin-bottom: 3rem;
+  color: #4a5568;
+  font-size: 1.25rem;
+  margin-bottom: 3.5rem;
+  line-height: 1.6;
 }
 
 .features {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
 }
 
 .feature {
-  text-align: center;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 15px;
-  transition: transform 0.3s ease;
+  text-align: left;
+  padding: 1.75rem;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .feature:hover {
   transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
 
 .feature-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 2.25rem;
+  margin-bottom: 1.25rem;
+  color: #3182ce;
+  background: rgba(235, 244, 255, 0.8);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
 }
 
 .feature h3 {
-  color: #133E87;
-  margin-bottom: 0.5rem;
+  color: #2d3748;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .feature p {
-  color: #608BC1;
+  color: #4a5568;
+  line-height: 1.6;
 }
 
 .auth-right {
   flex: 1;
-  padding: 4rem;
+  padding: 3rem 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.9), rgba(240, 242, 245, 0.8));
 }
 
 .auth-box {
   width: 100%;
-  max-width: 400px;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(19, 62, 135, 0.1);
+  max-width: 420px;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .auth-toggle {
   display: flex;
-  margin-bottom: 2rem;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 8px;
+  margin-bottom: 2.5rem;
+  background: rgba(242, 242, 242, 0.6);
+  border-radius: 10px;
   padding: 0.5rem;
 }
 
@@ -98,40 +128,47 @@
   padding: 0.8rem;
   border: none;
   background: none;
-  color: #608BC1;
+  color: #4a5568;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 8px;
   transition: all 0.3s ease;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .auth-toggle button.active {
-  background: #133E87;
-  color: #F3F3E0;
+  background: #3182ce;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .form-group label {
   display: block;
-  color: #133E87;
+  color: #2d3748;
   margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 0.95rem;
 }
 
 .form-group input {
   width: 100%;
-  padding: 0.8rem;
-  border: 2px solid rgba(19, 62, 135, 0.1);
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(203, 213, 224, 0.5);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.8);
   transition: all 0.3s ease;
+  font-size: 1rem;
 }
 
 .form-group input:focus {
   outline: none;
-  border-color: #608BC1;
-  background: rgba(255, 255, 255, 0.8);
+  border-color: #3182ce;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.2);
 }
 
 .submit-button {
@@ -139,34 +176,48 @@
   padding: 1rem;
   border: none;
   border-radius: 8px;
-  background: #133E87;
-  color: #F3F3E0;
+  background: #3182ce;
+  color: white;
   font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .submit-button:hover {
-  background: #608BC1;
+  background: #2b6cb0;
   transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.submit-button:active {
+  transform: translateY(0);
 }
 
 .error-message {
-  background: rgba(220, 53, 69, 0.1);
-  color: #dc3545;
-  padding: 0.8rem;
+  background: rgba(252, 129, 129, 0.2);
+  color: #e53e3e;
+  padding: 0.8rem 1rem;
   border-radius: 8px;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   text-align: center;
+  font-size: 0.95rem;
+  border: 1px solid rgba(252, 129, 129, 0.3);
 }
 
 @media (max-width: 1024px) {
   .auth-content {
     flex-direction: column;
+    max-width: 650px;
   }
 
   .auth-left, .auth-right {
-    padding: 2rem;
+    padding: 2.5rem;
+  }
+  
+  .auth-left h1 {
+    font-size: 2.25rem;
   }
 }
 
@@ -179,7 +230,15 @@
     font-size: 2rem;
   }
 
+  .auth-left, .auth-right {
+    padding: 2rem 1.5rem;
+  }
+
   .features {
     grid-template-columns: 1fr;
+  }
+  
+  .auth-box {
+    padding: 1.75rem;
   }
 } 

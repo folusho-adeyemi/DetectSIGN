@@ -1,21 +1,25 @@
 /* Light mode colors (default) */
 .App {
-  --bg-primary: #F3F3E0;
-  --bg-secondary: #CBDCEB;
-  --text-primary: #133E87;
-  --text-secondary: #608BC1;
-  --accent: #133E87;
-  --shadow: rgba(19, 62, 135, 0.1);
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #ffffff;
+  --text-primary: #2d3748;
+  --text-secondary: #4a5568;
+  --accent: #3182ce;
+  --accent-light: #90cdf4;
+  --shadow: rgba(0, 0, 0, 0.08);
+  --border: rgba(0, 0, 0, 0.1);
 }
 
 /* Dark mode colors */
 .App.dark-mode {
-  --bg-primary: #1a1a2e;
-  --bg-secondary: #16213e;
-  --text-primary: #CBDCEB;
-  --text-secondary: #F3F3E0;
-  --accent: #608BC1;
-  --shadow: rgba(0, 0, 0, 0.2);
+  --bg-primary: #1a202c;
+  --bg-secondary: #2d3748;
+  --text-primary: #f7fafc;
+  --text-secondary: #e2e8f0;
+  --accent: #90cdf4;
+  --accent-light: #63b3ed;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --border: rgba(255, 255, 255, 0.1);
 }
 
 .App {
@@ -25,115 +29,162 @@
   background: var(--bg-primary);
   transition: all 0.3s ease;
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: var(--text-primary);
 }
 
 .App-header {
   background: var(--accent);
-  padding: 1.5rem;
-  color: var(--bg-primary);
+  padding: 1.25rem 2rem;
+  color: white;
   text-align: center;
-  box-shadow: 0 2px 10px var(--shadow);
+  box-shadow: 0 2px 8px var(--shadow);
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .App-header h1 {
   margin: 0;
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
   font-weight: 700;
-  text-shadow: 2px 2px 4px var(--shadow);
+  letter-spacing: -0.5px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .instructions {
-  padding: 1.5rem;
+  padding: 1.75rem;
   text-align: center;
   font-size: clamp(0.9rem, 3vw, 1.1rem);
   max-width: 800px;
-  margin: 1rem auto;
+  margin: 2rem auto;
   background: var(--bg-secondary);
-  border-radius: 15px;
-  box-shadow: 0 4px 6px var(--shadow);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px var(--shadow);
   color: var(--text-primary);
+  line-height: 1.6;
+  border: 1px solid var(--border);
 }
 
 .detection-container {
   display: flex;
-  gap: 1rem;
-  padding: 1rem;
+  gap: 1.5rem;
+  padding: 1.5rem;
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto 2rem;
   flex-wrap: wrap;
 }
 
 .camera-section {
   flex: 1;
-  min-width: 300px;
+  min-width: 320px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   background: var(--bg-secondary);
-  padding: 1.5rem;
-  border-radius: 20px;
-  box-shadow: 0 8px 32px var(--shadow);
+  padding: 1.75rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px var(--shadow);
   color: var(--text-primary);
+  border: 1px solid var(--border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.camera-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px var(--shadow);
 }
 
 .debug-image-section {
   flex: 1;
-  min-width: 300px;
-  padding: 1.5rem;
+  min-width: 320px;
+  padding: 1.75rem;
   background: var(--bg-secondary);
-  border-radius: 20px;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  box-shadow: 0 8px 32px var(--shadow);
+  gap: 1.25rem;
+  box-shadow: 0 8px 30px var(--shadow);
   color: var(--text-primary);
+  border: 1px solid var(--border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.debug-image-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px var(--shadow);
 }
 
 .debug-image-section h3 {
   color: var(--text-primary);
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   margin: 0;
   text-align: center;
+  font-weight: 600;
 }
 
 .debug-image {
   width: 100%;
   height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px var(--shadow);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.debug-image:hover {
+  transform: scale(1.02);
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 500;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+input, select, textarea {
+  font-family: inherit;
 }
 
 @media (max-width: 768px) {
   .detection-container {
     flex-direction: column;
-    padding: 0.5rem;
+    padding: 1rem;
   }
 
   .camera-section,
   .debug-image-section {
     width: 100%;
     min-width: unset;
-    padding: 1rem;
+    padding: 1.25rem;
   }
 
   .instructions {
-    margin: 0.5rem;
-    padding: 1rem;
+    margin: 1rem;
+    padding: 1.25rem;
   }
 
   .App-header {
-    padding: 1rem;
+    padding: 1rem 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
   .detection-container {
-    padding: 0.25rem;
+    padding: 0.5rem;
   }
 
   .camera-section,
   .debug-image-section {
-    padding: 0.5rem;
+    padding: 1rem;
   }
 } 

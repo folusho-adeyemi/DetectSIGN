@@ -1,6 +1,7 @@
 # HandSpeak/DetectSIGN: Real-time ASL Recognition & Learning Platform
 A full-stack web application for real-time American Sign Language (ASL) detection, interpretation, and learning.
 
+
 ## Features
 
 -  Real-time ASL detection using webcam

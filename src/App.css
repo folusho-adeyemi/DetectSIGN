@@ -1,25 +1,30 @@
-/* Light mode colors (default) */
+/* Add at the very top of App.css */
+* {
+  border-radius: 0 !important;
+}
+
+/* Modern monochrome + blue accent palette */
 .App {
-  --bg-primary: #f8f9fa;
-  --bg-secondary: #ffffff;
-  --text-primary: #2d3748;
-  --text-secondary: #4a5568;
-  --accent: #3182ce;
-  --accent-light: #90cdf4;
-  --shadow: rgba(0, 0, 0, 0.08);
-  --border: rgba(0, 0, 0, 0.1);
+  --bg-primary: #fff;           /* White background */
+  --bg-secondary: #f5f5f5;      /* Light gray for cards/sections */
+  --text-primary: #111;         /* Black text */
+  --text-secondary: #444;       /* Dark gray for secondary text */
+  --accent: #007aff;            /* Blue accent */
+  --accent-light: #e6f0ff;      /* Very light blue for highlights */
+  --shadow: rgba(0, 0, 0, 0.06);
+  --border: #e0e0e0;            /* Light gray border */
 }
 
 /* Dark mode colors */
 .App.dark-mode {
-  --bg-primary: #1a202c;
-  --bg-secondary: #2d3748;
-  --text-primary: #f7fafc;
-  --text-secondary: #e2e8f0;
-  --accent: #90cdf4;
-  --accent-light: #63b3ed;
+  --bg-primary: #111;
+  --bg-secondary: #222;
+  --text-primary: #fff;
+  --text-secondary: #bbb;
+  --accent: #007aff;
+  --accent-light: #222b3a;
   --shadow: rgba(0, 0, 0, 0.3);
-  --border: rgba(255, 255, 255, 0.1);
+  --border: #333;
 }
 
 .App {

@@ -75,43 +75,51 @@ def detect():
         # Convert to numpy array
         image_array = np.array(image)
         image_array = cv2.flip(image_array, 1)
+         # Initialize MediaPipe Hands inside the function for each request
+        mp_hands = mp.solutions.hands
+        mp_drawing = mp.solutions.drawing_utils
+        with mp_hands.Hands(
+            static_image_mode=True,
+            max_num_hands=1,
+            min_detection_confidence=0.5,
+            min_tracking_confidence=0.5
+        ) as hands:
+            # Process the image
+            results = hands.process(image_array)
 
-        # Process the image
-        results = hands.process(image_array)
+            if results.multi_hand_landmarks:
+                hand_landmarks = results.multi_hand_landmarks[0]
+                sign, confidence = classify_hand_sign(hand_landmarks.landmark)
 
-        if results.multi_hand_landmarks:
-            hand_landmarks = results.multi_hand_landmarks[0]
-            sign, confidence = classify_hand_sign(hand_landmarks.landmark)
+                result['detected'] = True
+                result['sign_prediction'] = {
+                    'sign': sign,
+                    'confidence': confidence
+                }
+                result['debug_info'] = f"Detected sign: {sign} ({confidence:.2%} confidence)"
 
-            result['detected'] = True
-            result['sign_prediction'] = {
-                'sign': sign,
-                'confidence': confidence
-            }
-            result['debug_info'] = f"Detected sign: {sign} ({confidence:.2%} confidence)"
+                # Create debug image
+                debug_image = image_array.copy()
+                mp_drawing.draw_landmarks(
+                    debug_image,
+                    hand_landmarks,
+                    mp_hands.HAND_CONNECTIONS
+                )
 
-            # Create debug image
-            debug_image = image_array.copy()
-            mp_drawing.draw_landmarks(
-                debug_image,
-                hand_landmarks,
-                mp_hands.HAND_CONNECTIONS
-            )
+                # Add prediction text
+                cv2.putText(
+                    debug_image,
+                    f"{sign} {confidence:.2%}",
+                    (10, 30),
+                    cv2.FONT_HERSHEY_SIMPLEX,
+                    1,
+                    (0, 255, 0),
+                    2
+                )
 
-            # Add prediction text
-            cv2.putText(
-                debug_image,
-                f"{sign} {confidence:.2%}",
-                (10, 30),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                1,
-                (0, 255, 0),
-                2
-            )
-
-            # Convert to base64
-            _, buffer = cv2.imencode('.jpg', cv2.cvtColor(debug_image, cv2.COLOR_RGB2BGR))
-            result['annotated_image'] = f'data:image/jpeg;base64,{base64.b64encode(buffer).decode()}'
+                # Convert to base64
+                _, buffer = cv2.imencode('.jpg', cv2.cvtColor(debug_image, cv2.COLOR_RGB2BGR))
+                result['annotated_image'] = f'data:image/jpeg;base64,{base64.b64encode(buffer).decode()}'
 
         return jsonify(result)
 
